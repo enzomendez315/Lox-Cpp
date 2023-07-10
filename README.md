@@ -1,12 +1,12 @@
 # Building A Bytecode Virtual Machine
-This program is an interpreter for a custom scripting language called Lox. Lox is a high-level, dynamically-typed[^1] language like Python or PHP. Since Lox is a scripting language, it executes directly from source.
+This program is a virtual machine for a custom scripting language called Lox. Lox is a high-level, dynamically-typed[^1] language like Python or PHP. Since Lox is a scripting language, it executes directly from source.
 
-The main difference between a compiler and an interpreter is that a compiler only translates source code to some other form. It does not execute it. The user has to take the resulting output and run it themselves. On the other hand, an interpreter takes in source code and executes it immediately. In that regard, we can think of the compiler as a pipeline where each stage's job is to organize the data representing the user's code in a way that makes the next stage simpler to implement.
+This program is represented using bytecode, rather than abstract syntax trees using Java. Bytecode resembles machine code in the sense that it is a linear sequence of binary instructions. This representation has low overhead and uses the cache efficiently.
 
 For this project, I used a book called Crafting Interpreters by Robert Nystrom, where an interpreter is built from the ground up.[^2] It is ideal to get a better understanding of how high-level languages are implemented, and what goes through the creation of an interpreter using popular programming languages like Java or C++. This is a project to document what I learned.
 
 # Lox Documentation
-This reference manual describes the Lox programming language implemented in Java.
+This reference manual describes the Lox programming language implemented in C++.
 
 In Lox, values are created by literals, computed by expressions, and stored in variables. But the user only sees Lox objects (that are implemented in the undrelying language the interpreter is written in, aka Java).
 
@@ -273,6 +273,10 @@ Having a ParseError class gives us the opportunity to unwind the parser if there
 It is critical to detect and address runtime errors appropriately. If these errors are not handled correctly, the program will throw a Java exception that will unwind the whole stack before exiting the application and printing the Java stack trace on the screen. But the fact that Lox is implemented in Java should be a detail hidden from the user, which is why dealing with runtime errors is important. The program uses its own class to extend the functionality of Java's RuntimeException class in order to detect and report errors to the user.
 
 Call type errors serve to detect and notify the user that the function they tried to call is not callable. An example of this are strings that are used as functions like `"not a function"();`. The program will identify that the object is not an instance of `LoxCallable` and will catch the Java exception. The interpreter will then throw a Lox exception and report it to the user.
+----------------------------------------------------------
+
+A "chunk" refers to a sequence of bytecode.
+
 
 
 [^1]: Dynamically-typed means that the interpreter assigns variables a type at runtime based on the variable's value. This is different from a statically-typed language like Java or C++, where variable types are known at compile time.

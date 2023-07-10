@@ -1,5 +1,5 @@
-#ifndef lox_interpreter_cpp
-#define lox_interpreter_cpp
+#ifndef clox_common_h
+#define clox_common_h
 
 #include <stdbool.h>
 #include <stddef.h>
