@@ -175,6 +175,17 @@ class Student < Person
 ```
 
 # Implementation
+The instructions generated are stored in a dynamic array since we don't know how big the array needs to be before compiling a chunk. This dynamic array is grown or shrunk by the function `reallocate`, which changes the size of an allocation and allocates more memory or frees it if necessary.
+
+
+
+
+
+
+
+
+
+
 ## Scanner
 The first step in any interpreter (or compiler) is scanning. A scanner takes in raw source code as a stream of characters and groups them into a series of chunks called tokens. Tokens are recognized characters in programming languages like `(` or `;`, numbers, string literals, and identifiers. Tokens make up the language's grammar and they are what the scanner will feed into the parser.
 
