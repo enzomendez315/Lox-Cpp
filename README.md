@@ -3,10 +3,10 @@ This program is a virtual machine for a custom scripting language called Lox. Lo
 
 This program is represented using bytecode, rather than abstract syntax trees using Java. Bytecode resembles machine code in the sense that it is a linear sequence of binary instructions. This representation has low overhead and uses the cache efficiently.
 
-For this project, I used a book called Crafting Interpreters by Robert Nystrom, where an interpreter is built from the ground up.[^2] It is ideal to get a better understanding of how high-level languages are implemented, and what goes through the creation of an interpreter using popular programming languages like Java or C++. This is a project to document what I learned.
+For this project, I used a book called Crafting Interpreters by Robert Nystrom, where an interpreter is built from the ground up.[^2] It is ideal to get a better understanding of how high-level languages are implemented, and what goes through the creation of an interpreter using popular programming languages like Java or C. This is a project to document what I learned.
 
 # Lox Documentation
-This reference manual describes the Lox programming language implemented in C++.
+This reference manual describes the Lox programming language implemented in C.
 
 In Lox, values are created by literals, computed by expressions, and stored in variables. But the user only sees Lox objects (that are implemented in the undrelying language the interpreter is written in, aka Java).
 
@@ -279,6 +279,6 @@ A "chunk" refers to a sequence of bytecode.
 
 
 
-[^1]: Dynamically-typed means that the interpreter assigns variables a type at runtime based on the variable's value. This is different from a statically-typed language like Java or C++, where variable types are known at compile time.
+[^1]: Dynamically-typed means that the interpreter assigns variables a type at runtime based on the variable's value. This is different from a statically-typed language like Java or C, where variable types are known at compile time.
 
 [^2]: https://craftinginterpreters.com/contents.html
