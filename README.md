@@ -177,6 +177,8 @@ class Student < Person
 # Implementation
 The instructions generated are stored in a dynamic array since we don't know how big the array needs to be before compiling a chunk. This dynamic array is grown or shrunk by the function `reallocate`, which changes the size of an allocation and allocates more memory or frees it if necessary.
 
+While an assembler translates assembly instructions into binary machine code, a disassembler translates binary machine code into readable assembly instructions.
+
 
 
 
