@@ -1,6 +1,5 @@
 CC = gcc
 CFLAGS = -Wall
-#DEPS = chunk.h common.h debug.h memory.h 
 
 all: clox
 
