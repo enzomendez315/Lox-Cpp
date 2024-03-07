@@ -9,3 +9,7 @@ void disassembleChunk(Chunk* chunk, const char* name) {
         offset = disassembleInstruction(chunk, offset);
     }
 }
+
+int disassembleInstruction(Chunk* chunk, int offset) {
+    return 0;
+}

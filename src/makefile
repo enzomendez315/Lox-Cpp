@@ -3,19 +3,19 @@ CFLAGS = -Wall
 
 all: clox
 
-clox: main.o chunk.o common.o debug.o memory.o 
-	$(CC) $(CFLAGS) -o clox $^
+clox: main.o chunk.o common.o debug.o memory.o
+	$(CC) $(CFLAGS) -o clox main.c chunk.c debug.c memory.c
 
-main.o: main.c common.h chunk.h chunk.c debug.h debug.c
-	$(CC) $(CFLAGS) -c clox main.c
+main.o: main.c common.h chunk.h debug.h
+	$(CC) $(CFLAGS) -c main.c
 
-debug.o: debug.h debug.c chunk.h chunk.c
+debug.o: debug.c debug.h chunk.h
 	$(CC) $(CFLAGS) -c debug.c
 
-chunk.o: chunk.h chunk.c common.h memory.h memory.c
+chunk.o: chunk.c chunk.h common.h memory.h
 	$(CC) $(CFLAGS) -c chunk.c
 
-memory.o: memory.h memory.c common.h chunk.h chunk.c
+memory.o: memory.c memory.h common.h
 	$(CC) $(CFLAGS) -c memory.c
 
 common.o: common.h
@@ -39,7 +39,7 @@ clean:
 # driver: $(OBJS) config.h defs.h fcyc.h
 # 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o driver
 
-# clean: 
+# clean:
 # 	-rm -f $(OBJS) driver core *~ *.o
 
 
