@@ -2,6 +2,7 @@
 #define clox_chunk_h
 
 #include "common.h"
+#include "value.h"
 
 /**
  * Contains a list of all the opcodes.
@@ -17,6 +18,7 @@ typedef struct {
     int count;      // Elements in the array
     int capacity;   // Entries allocated in the array
     uint8_t* code;
+    ValueArray constants;   // Holds constant identifiers
 } Chunk;
 
 /**
@@ -28,6 +30,12 @@ void initChunk(Chunk* chunk);
  * Appends a byte to the end of the array.
 */
 void writeChunk(Chunk* chunk, uint8_t byte);
+
+/**
+ * Adds a new constant to the chunk and returns the 
+ * index where the constant was appended.
+*/
+int addConstant(Chunk* chunk, Value value);
 
 /**
  * Deallocates all the memory and leaves the chunk 
