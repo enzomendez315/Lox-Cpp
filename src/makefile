@@ -6,11 +6,14 @@ all: clox
 # clox: main.o chunk.o common.o debug.o memory.o
 # 	$(CC) $(CFLAGS) -o clox main.o chunk.o common.o debug.o memory.o
 
-clox: main.o chunk.o common.o debug.o memory.o value.o
+clox: main.o chunk.o common.o debug.o memory.o value.o vm.o
 	$(CC) $(CFLAGS) -o clox $^
 
-main.o: main.c common.h chunk.h debug.h
+main.o: main.c common.h chunk.h debug.h vm.h
 	$(CC) $(CFLAGS) -c main.c
+
+vm.o: vm.c vm.h chunk.h common.h
+	$(CC) $(CFLAGS) -c vm.c
 
 value.o: value.c value.h common.h memory.h
 	$(CC) $(CFLAGS) -c value.c
