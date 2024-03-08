@@ -19,6 +19,7 @@ typedef struct {
     int count;      // Elements in the array
     int capacity;   // Entries allocated in the array
     uint8_t* code;
+    int* lines;     // Stores the source line of each byte
     ValueArray constants;   // Holds constant identifiers
 } Chunk;
 
@@ -31,7 +32,7 @@ void initChunk(Chunk* chunk);
  * Appends a byte (an opcode or an operand) to the end 
  * of the array.
 */
-void writeChunk(Chunk* chunk, uint8_t byte);
+void writeChunk(Chunk* chunk, uint8_t byte, int line);
 
 /**
  * Adds a new constant to the chunk and returns the 

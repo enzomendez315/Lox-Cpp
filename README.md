@@ -181,7 +181,7 @@ While an assembler translates assembly instructions into binary machine code, a 
 
 Bytecode allows instructions to have operands, which are stored as binary data immediately after the opcode. For example, if the instruction opcode for loading a constant is `00` and the constant index is `23`, then the instruction would be stored as `0023` where `00` is one byte and `23` is another byte. Each opcode determines how many operand bytes the instruction has and what they mean.
 
-
+Each chunk stores a separate array of integers that parallels the bytecode array. Each number in the array is the line number for the corresponding byte in the bytecode. When a runtime error occurs, we look up the line number at the same index as the current instruction's offset in the code array.
 
 
 
