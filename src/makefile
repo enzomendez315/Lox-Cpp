@@ -12,7 +12,7 @@ clox: main.o chunk.o common.o debug.o memory.o value.o vm.o
 main.o: main.c common.h chunk.h debug.h vm.h
 	$(CC) $(CFLAGS) -c main.c
 
-vm.o: vm.c vm.h chunk.h common.h
+vm.o: vm.c vm.h chunk.h common.h debug.h
 	$(CC) $(CFLAGS) -c vm.c
 
 value.o: value.c value.h common.h memory.h
