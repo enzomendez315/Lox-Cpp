@@ -15,7 +15,7 @@ main.o: main.c common.h chunk.h debug.h
 value.o: value.c value.h common.h memory.h
 	$(CC) $(CFLAGS) -c value.c
 
-debug.o: debug.c debug.h chunk.h
+debug.o: debug.c debug.h chunk.h value.h
 	$(CC) $(CFLAGS) -c debug.c
 
 chunk.o: chunk.c chunk.h common.h memory.h value.h

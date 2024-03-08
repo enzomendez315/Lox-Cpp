@@ -8,6 +8,7 @@
  * Contains a list of all the opcodes.
 */
 typedef enum {
+    OP_CONSTANT,    // Stores a constant value
     OP_RETURN,      // Returns from the current function
 } OpCode;
 
@@ -27,7 +28,8 @@ typedef struct {
 void initChunk(Chunk* chunk);
 
 /**
- * Appends a byte to the end of the array.
+ * Appends a byte (an opcode or an operand) to the end 
+ * of the array.
 */
 void writeChunk(Chunk* chunk, uint8_t byte);
 

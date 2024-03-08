@@ -177,7 +177,9 @@ class Student < Person
 # Implementation
 The instructions generated are stored in a dynamic array since we don't know how big the array needs to be before compiling a chunk. This dynamic array is grown or shrunk by the function `reallocate`, which changes the size of an allocation and allocates more memory or frees it if necessary.
 
-While an assembler translates assembly instructions into binary machine code, a disassembler translates binary machine code into readable assembly instructions. This helped with the testing and debugging phases of the program.
+While an assembler translates assembly instructions into binary machine code, a disassembler translates binary machine code into readable assembly instructions. This helps with the testing and debugging phases of the program.
+
+Bytecode allows instructions to have operands, which are stored as binary data immediately after the opcode. For example, if the instruction opcode for loading a constant is `00` and the constant index is `23`, then the instruction would be stored as `0023` where `00` is one byte and `23` is another byte. Each opcode determines how many operand bytes the instruction has and what they mean.
 
 
 
